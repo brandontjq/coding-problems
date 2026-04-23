@@ -19,7 +19,7 @@ class SubarraySumEqualsKTest {
     @Test
     void test2() {
         SubarraySumEqualsK test = new SubarraySumEqualsK();
-        int[] arr = {1,1,1};
+        int[] arr = {1,0,1,0,1};
         int k = 2;
 
         var result = test.subarraySum2(arr, k);
