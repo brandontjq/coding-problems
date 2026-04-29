@@ -3,6 +3,7 @@ package leetcode;
 import java.util.*;
 
 public class ShortestPathInBinaryMatrix {
+    //BFS traversal of 2D array
     public int shortestPathBinaryMatrix(int[][] grid) {
         int n = grid.length;
 
