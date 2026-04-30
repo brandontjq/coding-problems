@@ -1,6 +1,8 @@
 package leetcode;
 
 public class RangeSumQuery {
+
+    //prefix technique
     private int[] prefixArr;
 
     public RangeSumQuery(int[] nums) {
