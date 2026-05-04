@@ -9,8 +9,8 @@ class AlertUsingSameKeycardMoreThan3TimesTest {
     @Test
     void test() {
         AlertUsingSameKeycardMoreThan3Times test = new AlertUsingSameKeycardMoreThan3Times();
-        String[] keyName = {"daniel","daniel","daniel","luis","luis","luis","luis"};
-        String[] keyTime = {"10:00","10:40","11:00","09:00","11:00","13:00","15:00"};
+        String[] keyName = {"daniel", "daniel", "daniel", "luis", "luis", "luis", "luis"};
+        String[] keyTime = {"10:00", "10:40", "11:00", "09:00", "11:00", "13:00", "15:00"};
 
         var result = test.alertNames(keyName, keyTime);
         System.out.println(result);
