@@ -13,4 +13,11 @@ class SubdomainVisitCountTest {
         var result = test.subdomainVisits(cpDomains);
         System.out.println(result);
     }
+
+    @Test
+    void test2() {
+        String s = "www.google.com";
+        String[] s1 = s.split("\\.");
+        System.out.println(s1);
+    }
 }

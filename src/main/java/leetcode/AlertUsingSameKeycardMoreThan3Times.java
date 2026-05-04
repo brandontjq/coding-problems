@@ -45,7 +45,7 @@ public class AlertUsingSameKeycardMoreThan3Times {
     }
 
     private int convertToMinutes(String keyTime) {
-        String[] time = keyTime.split("\\:");
+        String[] time = keyTime.split(":");
         int hourInMinutes = Integer.parseInt(time[0]) * 60;
         int minutes = Integer.parseInt(time[1]);
         return hourInMinutes + minutes;
