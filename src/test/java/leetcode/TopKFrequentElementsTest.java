@@ -16,4 +16,12 @@ class TopKFrequentElementsTest {
         var result = test.topKFrequent(arr2, 2);
         System.out.println(Arrays.toString(result));
     }
+    @Test
+    void test2() {
+        int[] arr = {1,1,1,2,2,3};
+
+        TopKFrequentElements test = new TopKFrequentElements();
+        var result = test.topKFrequent2(arr, 2);
+        System.out.println(Arrays.toString(result));
+    }
 }
