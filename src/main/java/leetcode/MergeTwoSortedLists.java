@@ -4,24 +4,32 @@ import leetcode.node.ListNode;
 
 public class MergeTwoSortedLists {
 
-    public ListNode dummy (ListNode node) {
+    public ListNode dummy (ListNode list1, ListNode list2) {
         ListNode dummy = new ListNode(-1);
         ListNode curr = dummy;
-        ListNode node1 = node;
+        ListNode l1 = list1;
+        ListNode l2 = list2;
 
-        while (node1 != null) {
-            curr.next = node1;
-            node1 = node1.next;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                curr.next = l1;
+                l1 = l1.next;
+            } else {
+                curr.next = l2;
+                l2 = l2.next;
+            }
             curr = curr.next;
+        }
+
+        if (l1 != null) {
+            curr.next = l1;
+        }
+        if (l2 != null) {
+            curr.next = l2;
         }
 
         ListNode dummyNext = dummy.next;
         return dummyNext;
-
-//        ListNode dummy = new ListNode(-1);
-//        dummy.next = node;
-//        ListNode dummyNext = dummy.next;
-//        return dummyNext;
     }
 
 

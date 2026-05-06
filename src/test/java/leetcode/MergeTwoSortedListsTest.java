@@ -16,8 +16,12 @@ class MergeTwoSortedListsTest {
         one.next = two;
         two.next = three;
 
+        ListNode anotherTwo = new ListNode(2);
+        ListNode anotherThree = new ListNode(3);
+        anotherTwo.next = anotherThree;
+
         MergeTwoSortedLists test = new MergeTwoSortedLists();
-        test.dummy(one);
+        test.dummy(one, anotherTwo);
         System.out.println("done");
     }
 }
