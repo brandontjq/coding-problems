@@ -40,7 +40,6 @@ public class InsertInterval {
     }
 
     public int[][] insertAnother(int[][] intervals, int[] newInterval) {
-        if (intervals.length == 0 || intervals.length == 1 ) return intervals;
 
         List<int[]> result = new ArrayList<>();
         for (int i = 0; i < intervals.length; i++) {
