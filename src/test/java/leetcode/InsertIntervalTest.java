@@ -16,5 +16,17 @@ class InsertIntervalTest {
         int[][] result = insertInterval.insert(intervals, newInterval);
         System.out.println(result);
     }
+    @Test
+    void test2() {
+        InsertInterval insertInterval = new InsertInterval();
+        int[][] intervals = {{1,3}, {6,9}};
+        int[] newInterval = {2,5};
+//        int[][] intervals = {{1,3}, {6,9}};
+//        int[] newInterval = {0,4};
+
+
+        var result = insertInterval.insertAnother(intervals, newInterval);
+        System.out.println(result);
+    }
 
 }
