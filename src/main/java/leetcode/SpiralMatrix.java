@@ -26,7 +26,7 @@ public class SpiralMatrix {
             }
             right--;
 
-            // right -> left
+            // right -> left, for single row matrix
             if (top <= bottom) {
                 for (int col = right; col >= left; col--) {
                     result.add(matrix[bottom][col]);
@@ -34,7 +34,7 @@ public class SpiralMatrix {
                 bottom--;
             }
 
-            // bottom -> top
+            // bottom -> top // for single row matrix
             if (left <= right) {
                 for (int row = bottom; row >= top; row--) {
                     result.add(matrix[row][left]);
