@@ -16,13 +16,15 @@ public class MergeSortedArray {
                 j--;
             } else {
                 nums1[k] = nums1[i];
-                nums1[i] = nums2[j];
                 i--;
-                j--;
             }
             k--;
         }
 
-        System.out.println(nums1);
+        while (j >= 0) {
+            nums1[k] = nums2[j];
+            j--;
+            k--;
+        }
     }
 }
