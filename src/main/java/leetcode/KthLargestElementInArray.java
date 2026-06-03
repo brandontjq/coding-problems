@@ -6,19 +6,15 @@ public class KthLargestElementInArray {
 
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-
+        int count = 0;
         for (int num : nums) {
             minHeap.offer(num);
-//            if (minHeap.size() > k) {
-//                minHeap.poll();
-//            }
-        }
-        int end = minHeap.size() - k;
-        for (int i = 1; i <=end ;i++) {
-            minHeap.poll();
-        }
+            count++;
+            if (count > k) {
+                minHeap.poll();
+            }
 
-
+        }
         return minHeap.peek();
     }
 }
