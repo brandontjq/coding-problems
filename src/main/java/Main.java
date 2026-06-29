@@ -1,3 +1,5 @@
+import others.UserService;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -8,46 +10,15 @@ public class Main {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         ExecutorService executorService = Executors.newFixedThreadPool(3);
-        List<CompletableFuture<String>> completableFutures = List.of(
-               CompletableFuture.supplyAsync(
-                        () -> {
-                            try {
-                                Thread.sleep(10000);
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
-                            return "CF1";
-                        }, executorService
-                ),
+        UserService userService = new UserService();
+        CompletableFuture<String> completableFutureUser = CompletableFuture.supplyAsync(() -> userService.getUser(), executorService);
 
-        CompletableFuture.supplyAsync(
-                () -> {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    return "CF2";
-                }, executorService
-        ),
+        CompletableFuture.allOf(completableFutureUser).join();
 
-         CompletableFuture.supplyAsync(
-                () -> {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    return "CF3";
-                }, executorService
-            )
-        );
+        String user = completableFutureUser.join();
 
-        List<String> result = new ArrayList<>();
-        for (CompletableFuture<String> completableFuture : completableFutures) {
-            result.add(completableFuture.join());
-        }
-        System.out.println(result);
+
+
         executorService.shutdown();
         long end = System.currentTimeMillis();
 
