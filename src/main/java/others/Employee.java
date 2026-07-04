@@ -9,8 +9,9 @@ public final class Employee {
 
     public Employee(String name, List<String> roles, Date joiningDate) {
         this.name = name;
+        //this.roles = List.copyOf(roles); //returns immutable list
         this.roles = roles;
-        this.joiningDate = joiningDate;
+        this.joiningDate = new Date(joiningDate.getTime()); //this is needed for defensive copying.
     }
 
     public String getName() {
@@ -18,10 +19,10 @@ public final class Employee {
     }
 
     public List<String> getRoles() {
-        return roles;
+        return new ArrayList<>(roles);
     }
 
     public Date getJoiningDate() {
-        return joiningDate;
+        return new Date(this.joiningDate.getTime()); //need it here again because Date is mutable
     }
 }
